@@ -206,7 +206,7 @@ func TestDomainCreate(t *testing.T) {
 	  <Errors />
 	  <RequestedCommand>namecheap.domains.create</RequestedCommand>
 	  <CommandResponse Type="namecheap.domains.create">
-	    <DomainCreateResult Domain="domain1.com" Registered="true" ChargedAmount="20.3600" DomainID="9007" OrderID="196074" TransactionID="380716" WhoisguardEnable="false" NonRealTimeDomain="false" />
+	    <DomainCreateResult Domain="domain1.com" Registered="true" ChargedAmount="20.3600" DomainID="9007" OrderID="196074" TransactionID="380716" WhoisguardEnable="true" NonRealTimeDomain="false" />
 	  </CommandResponse>
 	  <Server>SERVER-NAME</Server>
 	  <GMTTimeDifference>+5</GMTTimeDifference>
@@ -247,7 +247,7 @@ func TestDomainCreate(t *testing.T) {
 
 	// DomainGetListResult we expect, given the respXML above
 	want := &DomainCreateResult{
-		"domain1.com", true, 20.36, 9007, 196074, 380716, false, false,
+		"domain1.com", true, 20.36, 9007, 196074, 380716, true, false,
 	}
 
 	if !reflect.DeepEqual(result, want) {
